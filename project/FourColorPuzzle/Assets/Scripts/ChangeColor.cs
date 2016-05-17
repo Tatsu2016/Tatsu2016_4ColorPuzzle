@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ChangeColor : MonoBehaviour
 {
+	[HideInInspector]
 	public SpriteRenderer sprite;
 	GameObject obj;
 	ColorScript Data;
