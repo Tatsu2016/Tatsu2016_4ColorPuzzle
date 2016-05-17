@@ -28,7 +28,7 @@ public class ClearCheck : MonoBehaviour
 	{
 		for (int i = 0; i < Judge.Length; i++)
 		{
-			if (Color[i].sprite.color == new Color(1,1,1))
+			if (Color[i].sprite.color == new Color(1, 1, 1) || Color[i].sprite.color == new Color(255, 255, 255))
 			{
 				isClear = false;
 				gameObject.transform.localPosition = new Vector3(100, 0, 0);
