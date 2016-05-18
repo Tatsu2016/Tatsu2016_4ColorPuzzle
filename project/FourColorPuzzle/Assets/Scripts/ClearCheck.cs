@@ -26,27 +26,37 @@ public class ClearCheck : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		for (int i = 0; i < Judge.Length; i++)
+		if (Input.GetMouseButtonDown(0))
 		{
-			if (Color[i].sprite.color == new Color(1, 1, 1) || Color[i].sprite.color == new Color(255, 255, 255))
-			{
-				isClear = false;
-				gameObject.transform.localPosition = new Vector3(100, 0, 0);
+			Vector2 tapPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Collider2D collider = Physics2D.OverlapPoint(tapPoint);
+			if (collider == null)
 				return;
-			}
-			for (int s = 0; s < Judge[i].CheckSprite.Length; s++)
+			if (collider.tag != "Puzzle")
+				return;
+			
+			for (int i = 0; i < Judge.Length; i++)
 			{
-				SpriteRenderer Sprite = Judge[i].CheckSprite[s];
-				if (Color[i].sprite.color == Sprite.color)
+				if (Color[i].sprite.color == new Color(1, 1, 1) || Color[i].sprite.color == new Color(255, 255, 255))
 				{
 					isClear = false;
 					gameObject.transform.localPosition = new Vector3(100, 0, 0);
 					return;
 				}
+				for (int s = 0; s < Judge[i].CheckSprite.Length; s++)
+				{
+					SpriteRenderer Sprite = Judge[i].CheckSprite[s];
+					if (Color[i].sprite.color == Sprite.color)
+					{
+						isClear = false;
+						gameObject.transform.localPosition = new Vector3(100, 0, 0);
+						return;
+					}
+				}
 			}
+			isClear = true;
+			gameObject.transform.localPosition = new Vector3(0, 0, 0);
 		}
-		isClear = true;
-		gameObject.transform.localPosition = new Vector3(0, 0, 0);
 	}
 
 	// クリア判定悩み中.
