@@ -10,8 +10,8 @@ public class ChangeColor : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		// 自動でコリダーコンポーネント追加.
-		gameObject.AddComponent<BoxCollider2D>();
+		// 自動でコライダーコンポーネント追加.
+		gameObject.AddComponent<PolygonCollider2D>();
 		gameObject.tag = "Puzzle";
 		sprite = GetComponent<SpriteRenderer>();
 		obj = GameObject.Find("ColorObj");
