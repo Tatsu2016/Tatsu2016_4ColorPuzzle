@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestSceneChange.unity
+  - enabled: 1
     path: Assets/Scenes/s_puzzle1.unity
+  - enabled: 1
+    path: Assets/Scenes/k_puzzle1.unity
