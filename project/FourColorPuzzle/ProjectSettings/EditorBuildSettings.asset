@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/k_puzzle1.unity
   - enabled: 1
     path: Assets/Scenes/u_puzzle1.unity
+  - enabled: 1
+    path: Assets/Scenes/test.unity
