@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ColorPanel
   - Puzzle
+  - Reset
   layers:
   - Default
   - TransparentFX

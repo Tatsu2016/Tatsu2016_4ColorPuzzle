@@ -32,9 +32,16 @@ public class ClearCheck : MonoBehaviour
 			Collider2D collider = Physics2D.OverlapPoint(tapPoint);
 			if (collider == null)
 				return;
+
 			if (collider.tag != "Puzzle")
+			{
+				if(collider.tag == "Reset")
+				{
+					isClear = false;
+					gameObject.transform.localPosition = new Vector3(100, 0, 0);
+				}
 				return;
-			
+			}
 			for (int i = 0; i < Judge.Length; i++)
 			{
 				if (Color[i].sprite.color == new Color(1, 1, 1) || Color[i].sprite.color == new Color(255, 255, 255))
