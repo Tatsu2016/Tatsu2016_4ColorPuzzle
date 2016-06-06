@@ -13,46 +13,87 @@ public class ColorData : MonoBehaviour
 	Vector3 SelectScale;
 	Vector3 SelectPos;
 
-	GameObject obj;
 	ColorScript afterColor;
 
+	// クリックされたUIの判定用.
+	bool isBeforeClick;
+	static bool isClick;
+
+
 	// Use this for initialization
+	//void Start()
+	//{
+	//	// 自動でコライダーコンポーネント追加.
+	//	gameObject.AddComponent<BoxCollider2D>();
+	//	OriginScale = transform.localScale;
+	//	OriginPos = transform.localPosition;
+	//	SelectScale = new Vector3(1.2f, 1.2f, 1.0f);
+	//	SelectPos = new Vector3(-0.1f, 0.1f, 0.0f);
+	//	SelectPos += OriginPos;
+	//	obj = GameObject.Find("ColorObj");
+	//	afterColor = obj.GetComponent<ColorScript>();
+	//}
+	//
+	//// Update is called once per frame
+	//void Update()
+	//{
+	//	if (Input.GetMouseButtonDown(0))
+	//	{
+	//		Vector2 tapPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	//		Collider2D collider = Physics2D.OverlapPoint(tapPoint);
+	//		if (collider == null)
+	//			return;
+	//		if (collider.name == gameObject.name)
+	//		{
+	//			afterColor.ColorInfo = ColorInfo;
+	//			gameObject.transform.localScale = SelectScale;
+	//			gameObject.transform.localPosition = SelectPos;
+	//		}
+	//		else
+	//		{
+	//			if (collider.tag == "ColorPanel")
+	//			{
+	//				gameObject.transform.localScale = OriginScale;
+	//				gameObject.transform.localPosition = OriginPos;
+	//			}
+	//		}
+	//	}
+	//}
+
 	void Start()
 	{
-		// 自動でコリダーコンポーネント追加.
-		gameObject.AddComponent<BoxCollider2D>();
+		isBeforeClick = isClick = false;
 		OriginScale = transform.localScale;
 		OriginPos = transform.localPosition;
 		SelectScale = new Vector3(1.2f, 1.2f, 1.0f);
 		SelectPos = new Vector3(-0.1f, 0.1f, 0.0f);
 		SelectPos += OriginPos;
+		GameObject obj;
 		obj = GameObject.Find("ColorObj");
 		afterColor = obj.GetComponent<ColorScript>();
 	}
 
-	// Update is called once per frame
+	public void ColorChange()
+	{
+		// 自分自身のフラグをUI全体と共通化する.
+		isBeforeClick = isClick;
+		// UI共通のフラグを入れ替える.
+		isClick = !isClick;
+
+		afterColor.ColorInfo = ColorInfo;
+		gameObject.transform.localScale = SelectScale;
+		gameObject.transform.localPosition = SelectPos;
+	}
+
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		// 自分自身のフラグとUI共通のフラグが同じ.
+		// = 他のUIがクリックされたとき.
+		if (isBeforeClick == isClick)
 		{
-			Vector2 tapPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			Collider2D collider = Physics2D.OverlapPoint(tapPoint);
-			if (collider == null)
-				return;
-			if (collider.name == gameObject.name)
-			{
-				afterColor.ColorInfo = ColorInfo;
-				gameObject.transform.localScale = SelectScale;
-				gameObject.transform.localPosition = SelectPos;
-			}
-			else
-			{
-				if (collider.tag == "ColorPanel")
-				{
-					gameObject.transform.localScale = OriginScale;
-					gameObject.transform.localPosition = OriginPos;
-				}
-			}
+			// 自分のサイズを元の大きさに戻す.
+			gameObject.transform.localScale = OriginScale;
+			gameObject.transform.localPosition = OriginPos;
 		}
 	}
 }
