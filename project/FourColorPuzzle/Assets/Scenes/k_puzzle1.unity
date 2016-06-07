@@ -354,6 +354,7 @@ GameObject:
   - 212: {fileID: 338042416}
   - 114: {fileID: 338042418}
   - 114: {fileID: 338042419}
+  - 60: {fileID: 338042420}
   m_Layer: 0
   m_Name: Square (12)
   m_TagString: Untagged
@@ -431,6 +432,24 @@ MonoBehaviour:
   - {fileID: 1239041491}
   - {fileID: 472851663}
   - {fileID: 1609106581}
+--- !u!60 &338042420
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338042415}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &339301099
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +532,7 @@ GameObject:
   - 212: {fileID: 349903188}
   - 114: {fileID: 349903190}
   - 114: {fileID: 349903191}
+  - 60: {fileID: 349903192}
   m_Layer: 0
   m_Name: Square (15)
   m_TagString: Untagged
@@ -589,6 +609,25 @@ MonoBehaviour:
   CheckObj:
   - {fileID: 1002680303}
   - {fileID: 632298140}
+--- !u!60 &349903192
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349903187}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: -0.5}
+      - {x: 0.48999998, y: -0.5}
+      - {x: 0.48999998, y: -0.48999998}
+      - {x: -0.48999998, y: 0.48999998}
+      - {x: -0.5, y: 0.48999998}
 --- !u!1 &442304210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3085,7 @@ GameObject:
   - 212: {fileID: 1989153174}
   - 114: {fileID: 1989153176}
   - 114: {fileID: 1989153177}
+  - 60: {fileID: 1989153178}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -3120,6 +3160,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckObj: []
+--- !u!60 &1989153178
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989153173}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &2009850979
 GameObject:
   m_ObjectHideFlags: 0
