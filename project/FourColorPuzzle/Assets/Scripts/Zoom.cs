@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Zoom : MonoBehaviour
 {
-    const float ZOOM_SPEED = 200.0f;
+    const float ZOOM_SPEED = 150.0f;
     const float MOVE_SPEED = 0.05f;
 
     private Vector3 originalSize;
@@ -51,17 +51,27 @@ public class Zoom : MonoBehaviour
             originalSize.z += (interval - tmpInterval) / ZOOM_SPEED;
 
             interval = tmpInterval;
-            if (originalSize.z < 1) originalSize.z = 1;
+            if (originalSize.z < 2) originalSize.z = 2;
             if (originalSize.z > 5) originalSize.z = 5;
 
             came.orthographicSize = originalSize.z;
             isPinch = true;
         }
-        else if (isDrag)
+        else if (isDrag && originalSize.z < 5)
         {
             pos_x = Input.GetAxis("Mouse X") * MOVE_SPEED;
             pos_y = Input.GetAxis("Mouse Y") * MOVE_SPEED;
-            
+
+            Vector3 pos = transform.position;
+
+            if (transform.position.x > 3) pos.x = 3;
+            if (transform.position.x < -3) pos.x = -3;
+            if (transform.position.y > 1.0) pos.y = 1.0f;
+            if (transform.position.y < -1.0) pos.y = -1.0f;
+
+
+            transform.position = pos;
+
             transform.Translate(-pos_x, -pos_y, 0);
         }
     }
