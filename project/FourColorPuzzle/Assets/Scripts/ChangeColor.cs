@@ -5,8 +5,20 @@ public class ChangeColor : MonoBehaviour
 {
 	[HideInInspector]
 	public SpriteRenderer sprite;
-	GameObject obj;
 	ColorScript Data;
+
+	//　デバッグ用(クリアしてから判定取らない).
+	bool isCleared;
+	static bool isDebug;
+	GameObject Clear;
+	ClearCheck Check;
+	// デバッグ用fin.
+
+	public void DebugClear(bool isFlag)
+	{
+		isDebug = isFlag;
+	}
+
 	// Use this for initialization
 	void Start()
 	{
@@ -14,13 +26,21 @@ public class ChangeColor : MonoBehaviour
 		gameObject.AddComponent<PolygonCollider2D>();
 		gameObject.tag = "Puzzle";
 		sprite = GetComponent<SpriteRenderer>();
-		obj = GameObject.Find("ColorObj");
+		GameObject obj = GameObject.Find("ColorObj");
 		Data = obj.GetComponent<ColorScript>();
+		Clear = GameObject.Find("Clear");
+		Check = Clear.GetComponent<ClearCheck>();
+		isDebug = true;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		// デバッグ用.
+		if (!isDebug && isCleared)
+			return;
+		// 無駄感すごい.
+		isCleared = Check.isClear;
 #if UNITY_ANDROID || UNITY_IOS
 		foreach (var touch in Input.touches)
 		{
@@ -32,7 +52,7 @@ public class ChangeColor : MonoBehaviour
 					return;
 				if (collider.name == gameObject.name)
 				{
-					sprite.color = new Color(Data.ColorInfo.r, Data.ColorInfo.g, Data.ColorInfo.b);
+					sprite.color = new Color(Data.ColorInfo.r, Data.ColorInfo.g, Data.ColorInfo.b);				
 				}
 			}
 		}
@@ -51,4 +71,5 @@ public class ChangeColor : MonoBehaviour
 		}
 #endif
 	}
+
 }

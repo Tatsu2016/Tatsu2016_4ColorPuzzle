@@ -6,7 +6,8 @@ public class ClearCheck : MonoBehaviour
 	JudgeColor[] Judge;
 	GameObject[] Obj;
 	ChangeColor[] Color;
-	bool isClear;
+	// デバッグ用にPublic指定.
+	public bool isClear;
 
 	// Use this for initialization
 	void Start()
