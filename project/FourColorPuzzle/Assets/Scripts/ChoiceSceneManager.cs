@@ -101,11 +101,15 @@ public class ChoiceSceneManager : MonoBehaviour {
             {
                 // クリア済み + 1ステージ
                 buttons[i].GetComponent<Image>().color = choiceColor;
+                buttons[i].GetComponent<Button>().interactable = true;
             }
             else
             {
                 // クリア前
-                buttons[i].GetComponent<Image>().color = notChoiceColor;
+                ColorBlock cb = buttons[i].GetComponent<Button>().colors;
+                cb.disabledColor = notChoiceColor;
+                buttons[i].GetComponent<Button>().colors = cb;
+                buttons[i].GetComponent<Button>().interactable = false;
             }
         }
     }
