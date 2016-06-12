@@ -354,6 +354,7 @@ GameObject:
   - 212: {fileID: 338042416}
   - 114: {fileID: 338042418}
   - 114: {fileID: 338042419}
+  - 60: {fileID: 338042420}
   m_Layer: 0
   m_Name: Square (12)
   m_TagString: Untagged
@@ -431,6 +432,24 @@ MonoBehaviour:
   - {fileID: 1239041491}
   - {fileID: 472851663}
   - {fileID: 1609106581}
+--- !u!60 &338042420
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338042415}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &339301099
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947c52f28d8fb52429bc4f1ec4fc310f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClear: 0
 --- !u!212 &339301101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,6 +533,7 @@ GameObject:
   - 212: {fileID: 349903188}
   - 114: {fileID: 349903190}
   - 114: {fileID: 349903191}
+  - 60: {fileID: 349903192}
   m_Layer: 0
   m_Name: Square (15)
   m_TagString: Untagged
@@ -589,6 +610,25 @@ MonoBehaviour:
   CheckObj:
   - {fileID: 1002680303}
   - {fileID: 632298140}
+--- !u!60 &349903192
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 349903187}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: -0.5}
+      - {x: 0.48999998, y: -0.5}
+      - {x: 0.48999998, y: -0.48999998}
+      - {x: -0.48999998, y: 0.48999998}
+      - {x: -0.5, y: 0.48999998}
 --- !u!1 &370809024
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +729,7 @@ GameObject:
   - 212: {fileID: 442304211}
   - 114: {fileID: 442304213}
   - 114: {fileID: 442304214}
+  - 60: {fileID: 442304215}
   m_Layer: 0
   m_Name: Square (16)
   m_TagString: Untagged
@@ -766,6 +807,25 @@ MonoBehaviour:
   - {fileID: 1002680303}
   - {fileID: 632298140}
   - {fileID: 1292667801}
+--- !u!60 &442304215
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442304210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: -0.5}
+      - {x: 0.48999998, y: -0.5}
+      - {x: 0.48999998, y: -0.48999998}
+      - {x: -0.48999998, y: 0.48999998}
+      - {x: -0.5, y: 0.48999998}
 --- !u!1 &472851662
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +837,7 @@ GameObject:
   - 212: {fileID: 472851663}
   - 114: {fileID: 472851665}
   - 114: {fileID: 472851666}
+  - 60: {fileID: 472851667}
   m_Layer: 0
   m_Name: Square (11)
   m_TagString: Untagged
@@ -854,6 +915,24 @@ MonoBehaviour:
   - {fileID: 845838110}
   - {fileID: 338042416}
   - {fileID: 1609106581}
+--- !u!60 &472851667
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 472851662}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &480731114
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1078,7 @@ GameObject:
   - 212: {fileID: 533971263}
   - 114: {fileID: 533971265}
   - 114: {fileID: 533971266}
+  - 60: {fileID: 533971267}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -1076,6 +1156,24 @@ MonoBehaviour:
   - {fileID: 1398449629}
   - {fileID: 1989153174}
   - {fileID: 2065350177}
+--- !u!60 &533971267
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533971262}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &584019294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1322,7 @@ GameObject:
   - 212: {fileID: 632298140}
   - 114: {fileID: 632298142}
   - 114: {fileID: 632298143}
+  - 60: {fileID: 632298144}
   m_Layer: 0
   m_Name: Square (17)
   m_TagString: Untagged
@@ -1301,6 +1400,27 @@ MonoBehaviour:
   - {fileID: 349903188}
   - {fileID: 442304211}
   - {fileID: 1292667801}
+--- !u!60 &632298144
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 632298139}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.7, y: 1.2099999}
+      - {x: -0.7, y: -0.03}
+      - {x: 0.38, y: -1.11}
+      - {x: 0.41, y: -1.1}
+      - {x: 0.41, y: 1.2099999}
+      - {x: 0.39, y: 1.23}
+      - {x: -0.68, y: 1.23}
 --- !u!1 &701640116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1780,7 @@ GameObject:
   - 212: {fileID: 845838110}
   - 114: {fileID: 845838112}
   - 114: {fileID: 845838113}
+  - 60: {fileID: 845838114}
   m_Layer: 0
   m_Name: Square (9)
   m_TagString: Untagged
@@ -1737,6 +1858,24 @@ MonoBehaviour:
   - {fileID: 2065350177}
   - {fileID: 1239041491}
   - {fileID: 472851663}
+--- !u!60 &845838114
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845838109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &906883158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2157,7 @@ GameObject:
   - 212: {fileID: 1002680303}
   - 114: {fileID: 1002680305}
   - 114: {fileID: 1002680306}
+  - 60: {fileID: 1002680307}
   m_Layer: 0
   m_Name: Square (14)
   m_TagString: Untagged
@@ -2095,6 +2235,27 @@ MonoBehaviour:
   - {fileID: 1609106581}
   - {fileID: 349903188}
   - {fileID: 442304211}
+--- !u!60 &1002680307
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002680302}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.7, y: 1.2099999}
+      - {x: -0.7, y: -0.03}
+      - {x: 0.38, y: -1.11}
+      - {x: 0.41, y: -1.1}
+      - {x: 0.41, y: 1.2099999}
+      - {x: 0.39, y: 1.23}
+      - {x: -0.68, y: 1.23}
 --- !u!1 &1128611359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2476,7 @@ GameObject:
   - 212: {fileID: 1239041491}
   - 114: {fileID: 1239041493}
   - 114: {fileID: 1239041494}
+  - 60: {fileID: 1239041495}
   m_Layer: 0
   m_Name: Square (10)
   m_TagString: Untagged
@@ -2392,6 +2554,24 @@ MonoBehaviour:
   - {fileID: 2009850980}
   - {fileID: 845838110}
   - {fileID: 338042416}
+--- !u!60 &1239041495
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1239041490}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &1292667800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2583,7 @@ GameObject:
   - 212: {fileID: 1292667801}
   - 114: {fileID: 1292667803}
   - 114: {fileID: 1292667804}
+  - 60: {fileID: 1292667805}
   m_Layer: 0
   m_Name: Square (18)
   m_TagString: Untagged
@@ -2479,6 +2660,24 @@ MonoBehaviour:
   CheckObj:
   - {fileID: 442304211}
   - {fileID: 632298140}
+--- !u!60 &1292667805
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292667800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &1338826287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2866,7 @@ GameObject:
   - 212: {fileID: 1398449629}
   - 114: {fileID: 1398449631}
   - 114: {fileID: 1398449632}
+  - 60: {fileID: 1398449633}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -2743,6 +2943,24 @@ MonoBehaviour:
   CheckObj:
   - {fileID: 533971263}
   - {fileID: 1989153174}
+--- !u!60 &1398449633
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398449628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &1595766051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,6 +3034,7 @@ GameObject:
   - 212: {fileID: 1609106581}
   - 114: {fileID: 1609106583}
   - 114: {fileID: 1609106584}
+  - 60: {fileID: 1609106585}
   m_Layer: 0
   m_Name: Square (13)
   m_TagString: Untagged
@@ -2893,6 +3112,24 @@ MonoBehaviour:
   - {fileID: 472851663}
   - {fileID: 338042416}
   - {fileID: 1002680303}
+--- !u!60 &1609106585
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609106580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &1670524016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3283,7 @@ GameObject:
   - 212: {fileID: 1989153174}
   - 114: {fileID: 1989153176}
   - 114: {fileID: 1989153177}
+  - 60: {fileID: 1989153178}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -3120,6 +3358,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckObj: []
+--- !u!60 &1989153178
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989153173}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &2009850979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,6 +3387,7 @@ GameObject:
   - 212: {fileID: 2009850980}
   - 114: {fileID: 2009850982}
   - 114: {fileID: 2009850983}
+  - 60: {fileID: 2009850984}
   m_Layer: 0
   m_Name: Square (7)
   m_TagString: Untagged
@@ -3208,6 +3465,24 @@ MonoBehaviour:
   - {fileID: 1989153174}
   - {fileID: 2065350177}
   - {fileID: 1239041491}
+--- !u!60 &2009850984
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009850979}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}
 --- !u!1 &2065350176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,6 +3494,7 @@ GameObject:
   - 212: {fileID: 2065350177}
   - 114: {fileID: 2065350179}
   - 114: {fileID: 2065350180}
+  - 60: {fileID: 2065350181}
   m_Layer: 0
   m_Name: Square (5)
   m_TagString: Untagged
@@ -3296,3 +3572,21 @@ MonoBehaviour:
   - {fileID: 533971263}
   - {fileID: 2009850980}
   - {fileID: 845838110}
+--- !u!60 &2065350181
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065350176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -0.575, y: 1.485}
+      - {x: -0.575, y: -1.405}
+      - {x: 0.59499997, y: -1.405}
+      - {x: 0.59499997, y: 1.485}

@@ -23,7 +23,8 @@ public class ChangeColor : MonoBehaviour
 	void Start()
 	{
 		// 自動でコライダーコンポーネント追加.
-		gameObject.AddComponent<PolygonCollider2D>();
+		if(gameObject.GetComponent<PolygonCollider2D>() == null)
+			gameObject.AddComponent<PolygonCollider2D>();
 		gameObject.tag = "Puzzle";
 		sprite = GetComponent<SpriteRenderer>();
 		GameObject obj = GameObject.Find("ColorObj");
