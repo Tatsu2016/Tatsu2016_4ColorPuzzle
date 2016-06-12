@@ -46,7 +46,6 @@ public class PolygonCollider : EditorWindow
 				TargetGameObject[i] = GameObject.Find(ObjectName + " (" + i + ")");
 			else
 				TargetGameObject[i] = GameObject.Find(ObjectName);
-			Debug.Log(TargetGameObject[i].name);
 
 			if (isAdd)
 			{
