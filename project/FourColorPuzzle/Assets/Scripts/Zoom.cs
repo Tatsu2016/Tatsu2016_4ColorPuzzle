@@ -3,76 +3,152 @@ using System.Collections;
 
 public class Zoom : MonoBehaviour
 {
+    private enum PINCH_STATUS
+    {
+        NONE = -1,
+        UP,
+        SCROLL,
+        PINCH,
+    };
+
+    private PINCH_STATUS pinchStatus = PINCH_STATUS.UP;
+    private PINCH_STATUS pinchStatusNext = PINCH_STATUS.NONE;
+
     const float ZOOM_SPEED = 150.0f;
     const float MOVE_SPEED = 0.05f;
 
-    private Vector3 originalSize;
     private float pos_x = 0.0f;
     private float pos_y = 0.0f;
+    private float pinchLength;
+    private Vector2 center;
+    Camera cam;
 
-    private bool isDrag = false;
-    private bool isPinch = false;
-    private float interval = 0.0f;
-    Camera came;
-
-    // Use this for initialization
     void Start()
     {
-        came = (Camera)transform.GetComponent("Camera");
-        originalSize.z = came.orthographicSize;
+        cam = (Camera)transform.GetComponent("Camera");
+    }
+
+    Vector2 convertCenter(Vector2 pos)
+    {
+        Vector3 p = cam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0));
+        return new Vector2(p.x, p.y);
     }
 
     void Update()
     {
-        if (Input.touchCount == 1 && !isPinch)
+        switch (pinchStatus)
         {
-            if (Event.current.type == EventType.MouseDrag)
-                isDrag = true;
-            else
-                isDrag = false;
+            case PINCH_STATUS.UP:
+                if (Input.touchCount == 1)
+                {
+                    pinchStatusNext = PINCH_STATUS.SCROLL;
+                }
+                if (Input.touchCount == 2)
+                {
+                    Touch touch0 = Input.GetTouch(0);
+                    Touch touch1 = Input.GetTouch(1);
+
+                    pinchLength = Vector2.Distance(touch0.position, touch1.position);
+                    center = (touch0.position + touch1.position) * 0.5f;
+                    center = convertCenter(center);
+                    print(touch0.position + ", " + touch1.position + ", " + center);
+
+
+                    pinchStatusNext = PINCH_STATUS.PINCH;
+                }
+
+                break;
+
+            case PINCH_STATUS.SCROLL:
+                if (Input.touchCount == 0)
+                {
+                    pinchStatusNext = PINCH_STATUS.UP;
+                }
+                if (Input.touchCount == 2)
+                {
+                    Touch touch0 = Input.GetTouch(0);
+                    Touch touch1 = Input.GetTouch(1);
+
+                    pinchLength = Vector2.Distance(touch0.position, touch1.position);
+                    center = (touch0.position + touch1.position) * 0.5f;
+                    center = convertCenter(center);
+                    print(touch0.position + ", " + touch1.position + ", " + center);
+
+                    pinchStatusNext = PINCH_STATUS.PINCH;
+                }
+
+                if (cam.orthographicSize < 5)
+                {
+                    pos_x = Input.GetAxis("Mouse X") * MOVE_SPEED;
+                    pos_y = Input.GetAxis("Mouse Y") * MOVE_SPEED;
+
+                    Vector3 pos = transform.localPosition;
+
+                    if (cam.transform.localPosition.x > 3) pos.x = 3;
+                    if (cam.transform.localPosition.x < -3) pos.x = -3;
+                    if (transform.localPosition.y > 1.0) pos.y = 1.0f;
+                    if (transform.localPosition.y < -1.0) pos.y = -1.0f;
+
+                    cam.transform.localPosition = pos;
+
+                    cam.transform.localPosition -= new Vector3(pos_x, pos_y, 0);
+
+                }
+                break;
+
+            case PINCH_STATUS.PINCH:
+                if (Input.touchCount == 0)
+                {
+                    pinchStatusNext = PINCH_STATUS.UP;
+                }
+                if (Input.touchCount == 1)
+                {
+                    pinchStatusNext = PINCH_STATUS.SCROLL;
+                }
+                break;
         }
-        else if (Input.touchCount == 0)
+
+        while (pinchStatusNext != PINCH_STATUS.NONE)
         {
-            isPinch = false;
-            isDrag = false;
+            pinchStatus = pinchStatusNext;
+            pinchStatusNext = PINCH_STATUS.NONE;
         }
 
-        //========================================================================
-        // ズームイン・アウト、画面スクロール
-        //========================================================================
-        if (Input.touchCount == 2) 
+        switch (pinchStatus)
         {
-            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[1].phase == TouchPhase.Began)
-            {
-                interval = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
-            }
-            float tmpInterval = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+            case PINCH_STATUS.PINCH:
+                Touch touch0 = Input.GetTouch(0);
+                Touch touch1 = Input.GetTouch(1);
+                float nowPinchLength = Vector2.Distance(touch0.position, touch1.position);
+                float scale = nowPinchLength / pinchLength;
+                cam.orthographicSize /= scale;
 
-            originalSize.z += (interval - tmpInterval) / ZOOM_SPEED;
+                if (cam.orthographicSize < 2) cam.orthographicSize = 2;
+                if (cam.orthographicSize > 5) cam.orthographicSize = 5;
+                pinchLength = nowPinchLength;
 
-            interval = tmpInterval;
-            if (originalSize.z < 2) originalSize.z = 2;
-            if (originalSize.z > 5) originalSize.z = 5;
+                Vector2 nowCamPos = new Vector2(cam.transform.localPosition.x, cam.transform.localPosition.y);
+                Vector2 dis = center - nowCamPos;
+                scale = 1.0f - scale;
+                dis = dis * scale;
 
-            came.orthographicSize = originalSize.z;
-            isPinch = true;
-        }
-        else if (isDrag && originalSize.z < 5)
-        {
-            pos_x = Input.GetAxis("Mouse X") * MOVE_SPEED;
-            pos_y = Input.GetAxis("Mouse Y") * MOVE_SPEED;
+                if (cam.orthographicSize > 2 && cam.orthographicSize < 5)
+                {
 
-            Vector3 pos = transform.position;
+                    if (cam.transform.localPosition.x > 3) dis.x = 3;
+                    if (cam.transform.localPosition.x < -3) dis.x = -3;
+                    if (cam.transform.localPosition.y > 1.0) dis.y = 1.0f;
+                    if (cam.transform.localPosition.y < -1.0) dis.y = -1.0f;
 
-            if (transform.position.x > 3) pos.x = 3;
-            if (transform.position.x < -3) pos.x = -3;
-            if (transform.position.y > 1.0) pos.y = 1.0f;
-            if (transform.position.y < -1.0) pos.y = -1.0f;
+                    cam.transform.localPosition -= new Vector3(dis.x, dis.y, 0);
+                }
 
+                if (cam.orthographicSize == 5)
+                {
+                    cam.transform.localPosition = new Vector3(0, 0, -10);
+                }
 
-            transform.position = pos;
-
-            transform.Translate(-pos_x, -pos_y, 0);
+                break;
         }
     }
 }

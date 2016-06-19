@@ -17,7 +17,7 @@ public class ShortestRecord : MonoBehaviour {
 	void Update () {
 	
 	}
-#if UNITY_EDITOR_WIN
+//#if UNITY_EDITOR_WIN
     void OnGUI()
     {
         if (GUI.Button(new Rect(0, 200, 100, 50), "reset"))
@@ -27,5 +27,5 @@ public class ShortestRecord : MonoBehaviour {
             Debug.Log("データ全消去!!!(・∀・)");
         }
     }
-#endif
+//#endif
 }
