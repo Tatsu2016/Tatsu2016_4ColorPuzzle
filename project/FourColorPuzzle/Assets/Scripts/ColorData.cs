@@ -3,8 +3,7 @@ using System.Collections;
 
 public class ColorData : MonoBehaviour
 {
-	[SerializeField]
-	Color32 ColorInfo;
+	public Color32 ColorInfo;
 
 	// 初期.
 	Vector3 OriginScale;

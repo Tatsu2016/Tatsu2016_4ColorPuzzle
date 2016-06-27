@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// クリア判定後エフェクトを有効にする処理を書く.
+
 public class ClearCheck : MonoBehaviour
 {
 	JudgeColor[] Judge;
 	GameObject[] Obj;
 	ChangeColor[] Color;
+	// 自分自身にアタッチされているパーティクルシステムを格納.
+	ParticleSystem ClearEffect;
+
 	// デバッグ用にPublic指定.
 	public bool isClear;
 
@@ -21,6 +26,8 @@ public class ClearCheck : MonoBehaviour
 			Judge[i] = Obj[i].GetComponent<JudgeColor>();
 			Color[i] = Obj[i].GetComponent<ChangeColor>();
 		}
+		ClearEffect = this.GetComponent<ParticleSystem>();
+		ClearEffect.Stop(true);
 		isClear = false;
 	}
 
@@ -62,9 +69,18 @@ public class ClearCheck : MonoBehaviour
 					}
 				}
 			}
+			ClearEffect.Play();
 			isClear = true;
 			gameObject.transform.localPosition = new Vector3(0, 0, 0);
 		}
+#if UNITY_EDITOR_WIN
+		else if (Input.GetKeyDown(KeyCode.Space))
+		{
+			ClearEffect.Play();
+			isClear = true;
+			gameObject.transform.localPosition = new Vector3(0, 0, 0);
+		}
+#endif
 	}
 
 	// クリア判定悩み中.
