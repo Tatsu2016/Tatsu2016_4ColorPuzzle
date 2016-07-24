@@ -42,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 2469522925
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Squares
+    uniqueID: 2364086575
+    locked: 0
+  - name: UI
+    uniqueID: 2742412293
     locked: 0
